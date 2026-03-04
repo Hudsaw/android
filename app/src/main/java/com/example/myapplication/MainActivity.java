@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     Button button;
+    Button btnreset;
     int c=0;
 
     @Override
@@ -22,11 +23,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView=findViewById(R.id.tv);
         button=findViewById(R.id.button);
+        btnreset=findViewById(R.id.btnreset);
         textView.setText("0");
         button.setOnClickListener(v -> {
             TextView tv = (TextView)v;
             c++;
             textView.setText(Integer.toString(c));
+        });
+        btnreset.setOnClickListener(v -> {
+            textView.setText("0");
+            c=0;
         });
 
     }
