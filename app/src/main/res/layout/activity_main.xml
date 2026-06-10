@@ -86,4 +86,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp" />
 
+    <Button
+        android:id="@+id/btnSQL"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Bloco de Notas (SQL)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/btnPaint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
