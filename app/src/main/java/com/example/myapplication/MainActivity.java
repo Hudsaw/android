@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnCounter, btnRandom, btnIMC, btnSlide, btnTinder, btnPaint, btnSQL;
+    Button btnCounter, btnRandom, btnIMC, btnSlide, btnTinder, btnPaint, btnSQL, btnGPS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         btnTinder = findViewById(R.id.btnTinder);
         btnPaint = findViewById(R.id.btnPaint);
         btnSQL = findViewById(R.id.btnSQL);
+        btnGPS = findViewById(R.id.btnGPS);
 
         btnCounter.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CounterActivity.class);
@@ -55,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         btnSQL.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SQLActivity.class);
+            startActivity(intent);
+        });
+
+        btnGPS.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, GPSActivity.class);
             startActivity(intent);
         });
     }
