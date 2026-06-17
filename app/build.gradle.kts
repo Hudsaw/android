@@ -41,4 +41,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.github.skydoves:colorpickerview:2.4.0")
+    implementation("org.osmdroid:osmdroid-android:6.1.16")
 }

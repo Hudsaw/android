@@ -13,11 +13,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import org.osmdroid.config.Configuration;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
+
 public class GPSActivity extends AppCompatActivity {
 
     private static final int REQUEST_LOCATION = 1;
     private LocationManager locationManager;
     private TextView tvGPS;
+    private MapView map;
     private Button btnGPS, btnVoltar;
 
     @SuppressLint("MissingInflatedId")
@@ -29,14 +36,16 @@ public class GPSActivity extends AppCompatActivity {
         tvGPS = findViewById(R.id.tvGPS);
         btnGPS = findViewById(R.id.btnGPS);
         btnVoltar = findViewById(R.id.btnVoltar);
+        map = findViewById(R.id.mapView);
+
+        Configuration.getInstance().setUserAgentValue(getPackageName());
+        map.setTileSource(TileSourceFactory.MAPNIK);
+        map.setMultiTouchControls(true);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         btnGPS.setOnClickListener(v -> checkAndGetLocation());
-
-        btnVoltar.setOnClickListener(v -> {
-            finish();
-        });
+        btnVoltar.setOnClickListener(v -> finish());
     }
 
     private void checkAndGetLocation() {
@@ -52,7 +61,6 @@ public class GPSActivity extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     private void getLocation() {
-
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if (location != null) {
@@ -60,11 +68,20 @@ public class GPSActivity extends AppCompatActivity {
             double longitude = location.getLongitude();
             updateLocationUI(latitude, longitude);
             Toast.makeText(this, "Localização obtida!", Toast.LENGTH_SHORT).show();
+
+            GeoPoint userlocation = new GeoPoint(latitude, longitude);
+            map.getController().setCenter(userlocation);
+            map.getController().setZoom(18.8);
+            map.getController().animateTo(userlocation);
+            Marker marker = new Marker(map);
+            marker.setPosition(userlocation);
+            marker.setTitle("Tú estás aqui");
+            map.getOverlays().add(marker);
+
         } else {
             tvGPS.setText("Localização não disponível\nTente novamente");
             Toast.makeText(this, "Não foi possível obter a localização", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void updateLocationUI(double latitude, double longitude) {
@@ -73,7 +90,7 @@ public class GPSActivity extends AppCompatActivity {
         }
     }
 
-    public void requisitandoPermissao() {
+    private void requisitandoPermissao() {
         ActivityCompat.requestPermissions(this,
                 new String[]{
                         Manifest.permission.ACCESS_FINE_LOCATION,
