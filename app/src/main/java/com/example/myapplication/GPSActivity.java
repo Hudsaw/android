@@ -18,7 +18,7 @@ public class GPSActivity extends AppCompatActivity {
     private static final int REQUEST_LOCATION = 1;
     private LocationManager locationManager;
     private TextView tvGPS;
-    private Button btnGPS;
+    private Button btnGPS, btnVoltar;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,10 +28,15 @@ public class GPSActivity extends AppCompatActivity {
 
         tvGPS = findViewById(R.id.tvGPS);
         btnGPS = findViewById(R.id.btnGPS);
+        btnVoltar = findViewById(R.id.btnVoltar);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         btnGPS.setOnClickListener(v -> checkAndGetLocation());
+
+        btnVoltar.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private void checkAndGetLocation() {
@@ -47,28 +52,19 @@ public class GPSActivity extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     private void getLocation() {
-        try {
-            // Tenta obter a última localização conhecida
-            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-            if (location == null) {
-                location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            }
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-            if (location != null) {
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-                updateLocationUI(latitude, longitude);
-                Toast.makeText(this, "Localização obtida!", Toast.LENGTH_SHORT).show();
-            } else {
-                tvGPS.setText("Localização não disponível\nTente novamente");
-                Toast.makeText(this, "Não foi possível obter a localização", Toast.LENGTH_SHORT).show();
-            }
-
-        } catch (SecurityException e) {
-            e.printStackTrace();
-            tvGPS.setText("Erro ao obter localização");
+        if (location != null) {
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
+            updateLocationUI(latitude, longitude);
+            Toast.makeText(this, "Localização obtida!", Toast.LENGTH_SHORT).show();
+        } else {
+            tvGPS.setText("Localização não disponível\nTente novamente");
+            Toast.makeText(this, "Não foi possível obter a localização", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     private void updateLocationUI(double latitude, double longitude) {
