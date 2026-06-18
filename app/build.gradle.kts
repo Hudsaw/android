@@ -42,4 +42,10 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation("com.github.skydoves:colorpickerview:2.4.0")
     implementation("org.osmdroid:osmdroid-android:6.1.16")
+    implementation("androidx.camera:camera-core:1.3.4")
+    implementation("androidx.camera:camera-camera2:1.3.4")
+    implementation("androidx.camera:camera-lifecycle:1.3.4")
+    implementation("androidx.camera:camera-view:1.3.4")
+
+
 }

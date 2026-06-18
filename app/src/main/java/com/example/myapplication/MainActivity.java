@@ -3,65 +3,22 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    Button btnCounter, btnRandom, btnIMC, btnSlide, btnTinder, btnPaint, btnSQL, btnGPS;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnCounter = findViewById(R.id.btnCounter);
-        btnRandom = findViewById(R.id.btnRandom);
-        btnIMC = findViewById(R.id.btnIMC);
-        btnSlide = findViewById(R.id.btnSlide);
-        btnTinder = findViewById(R.id.btnTinder);
-        btnPaint = findViewById(R.id.btnPaint);
-        btnSQL = findViewById(R.id.btnSQL);
-        btnGPS = findViewById(R.id.btnGPS);
-
-        btnCounter.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, CounterActivity.class);
-            startActivity(intent);
-        });
-
-        btnRandom.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, RandomActivity.class);
-            startActivity(intent);
-        });
-
-        btnIMC.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, IMCActivity.class);
-            startActivity(intent);
-        });
-
-        btnSlide.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, SlideActivity.class);
-            startActivity(intent);
-        });
-
-        btnPaint.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, PaintActivity.class);
-            startActivity(intent);
-        });
-
-        btnTinder.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, TinderActivity.class);
-            startActivity(intent);
-        });
-
-        btnSQL.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, SQLActivity.class);
-            startActivity(intent);
-        });
-
-        btnGPS.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, GPSActivity.class);
-            startActivity(intent);
-        });
+        findViewById(R.id.btnCounter).setOnClickListener(v -> startActivity(new Intent(this, CounterActivity.class)));
+        findViewById(R.id.btnRandom).setOnClickListener(v -> startActivity(new Intent(this, RandomActivity.class)));
+        findViewById(R.id.btnIMC).setOnClickListener(v -> startActivity(new Intent(this, IMCActivity.class)));
+        findViewById(R.id.btnSlide).setOnClickListener(v -> startActivity(new Intent(this, SlideActivity.class)));
+        findViewById(R.id.btnTinder).setOnClickListener(v -> startActivity(new Intent(this, TinderActivity.class)));
+        findViewById(R.id.btnPaint).setOnClickListener(v -> startActivity(new Intent(this, PaintActivity.class)));
+        findViewById(R.id.btnSQL).setOnClickListener(v -> startActivity(new Intent(this, SQLActivity.class)));
+        findViewById(R.id.btnGPS).setOnClickListener(v -> startActivity(new Intent(this, GPSActivity.class)));
+        findViewById(R.id.btnCamera).setOnClickListener(v -> startActivity(new Intent(this, CameraActivity.class)));
     }
 }

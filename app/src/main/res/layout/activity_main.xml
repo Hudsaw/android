@@ -11,101 +11,112 @@
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="Aplicativo Multi-Funções"
+        android:textAlignment="center"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnCounter"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="40dp"
         android:text="Contador"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
     <Button
         android:id="@+id/btnRandom"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Número Aleatório"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnCounter"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCounter" />
 
     <Button
         android:id="@+id/btnIMC"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Calculadora IMC"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnRandom"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRandom" />
 
     <Button
         android:id="@+id/btnSlide"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Galeria de Imagens"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnIMC"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIMC" />
 
     <Button
         android:id="@+id/btnTinder"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Seleção de imagens"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnSlide"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSlide" />
 
     <Button
         android:id="@+id/btnPaint"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Área de desenho"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnTinder"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTinder" />
 
     <Button
         android:id="@+id/btnSQL"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Bloco de Notas (SQL)"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnPaint"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPaint" />
 
     <Button
         android:id="@+id/btnGPS"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="GPS - Localização"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnSQL"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSQL" />
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Câmera"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGPS" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
